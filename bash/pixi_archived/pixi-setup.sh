@@ -5,12 +5,11 @@ if [[ -z ${PIXI_HOME:-} ]]; then
   export PIXI_HOME="${HOME}/.pixi"
 fi
 
-# Install pixi
+# Install pixi (Ruixi’s version)
 curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/pixi-install.sh | bash
 
-
 # Install global packages
-pixi global install $(curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/envs/global_packages.txt | grep -v "#" | tr '\n' ' ')
+pixi global install $(curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/envs/global_packages.txt | grep -v "#" | tr '\n' ' ')
 if [[ "$OSTYPE" == "linux-gnu"* ]]; then
   pixi global expose remove kill
 fi
@@ -21,14 +20,13 @@ if [[ "$OSTYPE" == "linux-gnu"* ]]; then
 fi
 
 echo "Installing recommended R libraries ..."
-pixi global install --environment r-base $(curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/envs/r_packages.txt | grep -v "#" | tr '\n' ' ')
+pixi global install --environment r-base $(curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/envs/r_packages.txt | grep -v "#" | tr '\n' ' ')
 echo "Installing recommended Python packages ..."
-pixi global install --environment python $(curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/envs/python_packages.txt | grep -v "#" | tr '\n' ' ')
+pixi global install --environment python $(curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/envs/python_packages.txt | grep -v "#" | tr '\n' ' ')
 pixi clean cache -y
 
-# Install config files (using Ruixi's modified version)
+# Install config files (Ruixi’s version)
 curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/init.sh | bash
-
 
 # print messages
 BB='\033[1;34m'
