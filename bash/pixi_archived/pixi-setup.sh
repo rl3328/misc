@@ -6,7 +6,8 @@ if [[ -z ${PIXI_HOME:-} ]]; then
 fi
 
 # Install pixi
-curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/pixi-install.sh | bash
+curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/pixi-install.sh | bash
+
 
 # Install global packages
 pixi global install $(curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/envs/global_packages.txt | grep -v "#" | tr '\n' ' ')
