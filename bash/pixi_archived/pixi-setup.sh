@@ -25,8 +25,9 @@ echo "Installing recommended Python packages ..."
 pixi global install --environment python $(curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/envs/python_packages.txt | grep -v "#" | tr '\n' ' ')
 pixi clean cache -y
 
-# Install config files
-curl -fsSL https://raw.githubusercontent.com/gaow/misc/master/bash/pixi/init.sh | bash
+# Install config files (using Ruixi's modified version)
+curl -fsSL https://raw.githubusercontent.com/rl3328/misc/master/bash/pixi_archived/init.sh | bash
+
 
 # print messages
 BB='\033[1;34m'
